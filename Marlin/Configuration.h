@@ -506,9 +506,9 @@
 //  #define DEFAULT_Ki 1.25 //.64
 //  #define DEFAULT_Kd 86.0 //57.67
 
-   #define DEFAULT_Kp 17.95
-   #define DEFAULT_Ki 1.29
-   #define DEFAULT_Kd 62.36
+   #define DEFAULT_Kp 19.94 //17.95
+   #define DEFAULT_Ki 1.50 //1.29
+   #define DEFAULT_Kd 66.50 //62.36
 
    // 20V: m301 p8.41 i0.59 d30
    // Prev: p29.29 i2.34 d91.84
