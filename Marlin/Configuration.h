@@ -511,9 +511,14 @@
 //  #define DEFAULT_Ki 1.25 //.64
 //  #define DEFAULT_Kd 86.0 //57.67
 
-   #define DEFAULT_Kp 19.94 //17.95
-   #define DEFAULT_Ki 1.50 //1.29
-   #define DEFAULT_Kd 66.50 //62.36
+// 2020.05.02
+//   #define DEFAULT_Kp 19.94 //17.95
+//   #define DEFAULT_Ki 1.50 //1.29
+//   #define DEFAULT_Kd 66.50 //62.36
+
+   #define DEFAULT_Kp 29.29
+   #define DEFAULT_Ki 2.34
+   #define DEFAULT_Kd 91.84
 
    // 20V: m301 p8.41 i0.59 d30
    // Prev: p29.29 i2.34 d91.84
@@ -574,9 +579,9 @@
   // #define DEFAULT_bedKd 639.10
 
   // SSR's default
-  #define DEFAULT_bedKp 196
-  #define DEFAULT_bedKi 33
-  #define DEFAULT_bedKd 290
+//  #define DEFAULT_bedKp 196
+//  #define DEFAULT_bedKi 33
+//  #define DEFAULT_bedKd 290
 
   // Solid State Relay
   #define DEFAULT_bedKp 90.33
@@ -768,7 +773,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 400, 427.50 } // 142.05 // 94.86 (direct) // { 40, 40, 200, 70.43 } //{ 160, 160, 800, 281.72 } // 140.86 //{ 100, 100, 400, 95 } //{ 200, 200, 800, 190 } //{ 100, 100, 400, 100 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 427.50 } // 142.05 // 94.86 (direct) // { 40, 40, 200, 70.43 } //{ 160, 160, 800, 281.72 } // 140.86 //{ 100, 100, 400, 95 } //{ 200, 200, 800, 190 } //{ 100, 100, 400, 100 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -815,7 +820,7 @@
  * When changing speed and direction, if the difference is less than the
  * value set here, it may happen instantaneously.
  */
-#define CLASSIC_JERK
+//#define CLASSIC_JERK
 #if ENABLED(CLASSIC_JERK)
   #define DEFAULT_XJERK 10.0
   #define DEFAULT_YJERK 10.0
@@ -842,7 +847,7 @@
  *   http://blog.kyneticcnc.com/2018/10/computing-junction-deviation-for-marlin.html
  */
 #if DISABLED(CLASSIC_JERK)
-  #define JUNCTION_DEVIATION_MM 0.013 // (mm) Distance from real junction edge
+  #define JUNCTION_DEVIATION_MM 0.014 // (mm) Distance from real junction edge
 #endif
 
 /**
@@ -1005,7 +1010,7 @@
 #define MIN_PROBE_EDGE 10
 
 // X and Y axis travel speed (mm/m) between probes
-#define XY_PROBE_SPEED 8000
+#define XY_PROBE_SPEED 6000 // 8000
 
 // Feedrate (mm/m) for the first approach when double-probing (MULTIPLE_PROBING == 2)
 #define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z
@@ -1284,7 +1289,7 @@
     #define MESH_TEST_NOZZLE_SIZE    0.4  // (mm) Diameter of primary nozzle.
     #define MESH_TEST_LAYER_HEIGHT   0.2  // (mm) Default layer height for the G26 Mesh Validation Tool.
     #define MESH_TEST_HOTEND_TEMP  230    // (°C) Default nozzle temperature for the G26 Mesh Validation Tool.
-    #define MESH_TEST_BED_TEMP     110    // (°C) Default bed temperature for the G26 Mesh Validation Tool.
+    #define MESH_TEST_BED_TEMP     100    // (°C) Default bed temperature for the G26 Mesh Validation Tool.
     #define G26_XY_FEEDRATE         20    // (mm/s) Feedrate for XY Moves for the G26 Mesh Validation Tool.
     #define G26_RETRACT_MULTIPLIER   1.0  // G26 Q (retraction) used by default between mesh test elements.
   #endif
@@ -1408,7 +1413,7 @@
 #endif
 
 // Homing speeds (mm/m)
-#define HOMING_FEEDRATE_XY (50*60)
+#define HOMING_FEEDRATE_XY (30*60) // (50*60)
 #define HOMING_FEEDRATE_Z  (4*60)
 
 // Validate that endstops are triggered on homing moves
@@ -2178,20 +2183,20 @@
 // Use software PWM to drive the fan, as for the heaters. This uses a very low frequency
 // which is not as annoying as with the hardware PWM. On the other hand, if this frequency
 // is too low, you should also increment SOFT_PWM_SCALE.
-//#define FAN_SOFT_PWM
+#define FAN_SOFT_PWM
 
 // Incrementing this by 1 will double the software PWM frequency,
 // affecting heaters, and the fan if FAN_SOFT_PWM is enabled.
 // However, control resolution will be halved for each increment;
 // at zero value, there are 128 effective control positions.
 // :[0,1,2,3,4,5,6,7]
-#define SOFT_PWM_SCALE 0
+#define SOFT_PWM_SCALE 2
 
 // If SOFT_PWM_SCALE is set to a value higher than 0, dithering can
 // be used to mitigate the associated resolution loss. If enabled,
 // some of the PWM cycles are stretched so on average the desired
 // duty cycle is attained.
-//#define SOFT_PWM_DITHER
+#define SOFT_PWM_DITHER
 
 // Temperature status LEDs that display the hotend and bed temperature.
 // If all hotends, bed temperature, and target temperature are under 54C
@@ -2299,7 +2304,7 @@
 //#define SERVO_DELAY { 300 }
 
 // Only power servos during movement, otherwise leave off to prevent jitter
-#define DEACTIVATE_SERVOS_AFTER_MOVE
+//#define DEACTIVATE_SERVOS_AFTER_MOVE
 
 // Allow servo angle to be edited and saved to EEPROM
 //#define EDITABLE_SERVO_ANGLES
