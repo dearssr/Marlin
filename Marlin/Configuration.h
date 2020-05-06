@@ -516,9 +516,9 @@
 //   #define DEFAULT_Ki 1.50 //1.29
 //   #define DEFAULT_Kd 66.50 //62.36
 
-   #define DEFAULT_Kp 29.29
-   #define DEFAULT_Ki 2.34
-   #define DEFAULT_Kd 91.84
+   #define DEFAULT_Kp 25.44
+   #define DEFAULT_Ki 1.65
+   #define DEFAULT_Kd 98.09
 
    // 20V: m301 p8.41 i0.59 d30
    // Prev: p29.29 i2.34 d91.84
@@ -542,7 +542,7 @@
  * heater. If your configuration is significantly different than this and you don't understand
  * the issues involved, don't use bed PID until someone else verifies that your hardware works.
  */
-//#define PIDTEMPBED
+#define PIDTEMPBED
 
 //#define BED_LIMIT_SWITCHING
 
@@ -584,9 +584,9 @@
 //  #define DEFAULT_bedKd 290
 
   // Solid State Relay
-  #define DEFAULT_bedKp 90.33
-  #define DEFAULT_bedKi 10.24
-  #define DEFAULT_bedKd 531.33
+  #define DEFAULT_bedKp 103.86
+  #define DEFAULT_bedKi 13.07
+  #define DEFAULT_bedKd 550.30
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -1003,7 +1003,7 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET { -30, -18, -1.65 } // { -5, 57, -7 } //{ 25, -8, -5 }
+#define NOZZLE_TO_PROBE_OFFSET { -30, -18, -1.9 } // { -5, 57, -7 } //{ 25, -8, -5 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -2183,20 +2183,20 @@
 // Use software PWM to drive the fan, as for the heaters. This uses a very low frequency
 // which is not as annoying as with the hardware PWM. On the other hand, if this frequency
 // is too low, you should also increment SOFT_PWM_SCALE.
-#define FAN_SOFT_PWM
+//#define FAN_SOFT_PWM
 
 // Incrementing this by 1 will double the software PWM frequency,
 // affecting heaters, and the fan if FAN_SOFT_PWM is enabled.
 // However, control resolution will be halved for each increment;
 // at zero value, there are 128 effective control positions.
 // :[0,1,2,3,4,5,6,7]
-#define SOFT_PWM_SCALE 2
+//#define SOFT_PWM_SCALE 2
 
 // If SOFT_PWM_SCALE is set to a value higher than 0, dithering can
 // be used to mitigate the associated resolution loss. If enabled,
 // some of the PWM cycles are stretched so on average the desired
 // duty cycle is attained.
-#define SOFT_PWM_DITHER
+//#define SOFT_PWM_DITHER
 
 // Temperature status LEDs that display the hotend and bed temperature.
 // If all hotends, bed temperature, and target temperature are under 54C
