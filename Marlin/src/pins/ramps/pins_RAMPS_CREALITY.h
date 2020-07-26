@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 #pragma once
@@ -47,7 +47,6 @@
   #define PS_ON_PIN                           40  // Used by CR2020 Industrial series
 #endif
 
-
 #if ENABLED(CASE_LIGHT_ENABLE) && !defined(CASE_LIGHT_PIN)
   #define CASE_LIGHT_PIN                      65
 #endif
@@ -65,5 +64,5 @@
 
 #define SUICIDE_PIN                           12  // Used by CR2020 Industrial series
 #ifndef SUICIDE_PIN_INVERTING
-  #define SUICIDE_PIN_INVERTING             true
+  #define SUICIDE_PIN_INVERTING true
 #endif
