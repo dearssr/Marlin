@@ -541,7 +541,7 @@
  * heater. If your configuration is significantly different than this and you don't understand
  * the issues involved, don't use bed PID until someone else verifies that your hardware works.
  */
-#define PIDTEMPBED
+//#define PIDTEMPBED
 
 //#define BED_LIMIT_SWITCHING
 
@@ -783,7 +783,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 840 } // 142.05 // 427.50 // 94.86 (direct) // { 40, 40, 200, 70.43 } //{ 160, 160, 800, 281.72 } // 140.86 //{ 100, 100, 400, 95 } //{ 200, 200, 800, 190 } //{ 100, 100, 400, 100 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 400, 420 } // 142.05 // 427.50 // 94.86 (direct) // { 40, 40, 200, 70.43 } //{ 160, 160, 800, 281.72 } // 140.86 //{ 100, 100, 400, 95 } //{ 200, 200, 800, 190 } //{ 100, 100, 400, 100 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1020,7 +1020,7 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET { -30, -18, -0.95 } // { 22, -8, -4 } // { -30, -18, -1.9 } // { -5, 57, -7 } //{ 25, -8, -5 }
+#define NOZZLE_TO_PROBE_OFFSET { 36, 0, -1.15 } // { 22, -8, -4 } // { -30, -18, -1.9 } // { -5, 57, -7 } //{ 25, -8, -5 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1127,7 +1127,7 @@
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR false
+#define INVERT_E0_DIR true
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
@@ -1156,16 +1156,16 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 200
+#define X_BED_SIZE 220
 #define Y_BED_SIZE 220
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS 0
-#define Y_MIN_POS -5
+#define X_MIN_POS -5.6
+#define Y_MIN_POS -10
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 180
+#define Z_MAX_POS 240
 
 /**
  * Software Endstops
@@ -1207,8 +1207,7 @@
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
   #define FIL_RUNOUT_PIN P1_24 // Z+
   #define NUM_RUNOUT_SENSORS   1     // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
-  #define FIL_RUNOUT_INVERTING true // Set to true to invert the logic of the sensor.
-  #define FIL_RUNOUT_STATE     LOW   // Pin state indicating that filament is NOT present.
+  #define FIL_RUNOUT_STATE     HIGH  // Pin state indicating that filament is NOT present.
   #define FIL_RUNOUT_PULLUP          // Use internal pullup for filament runout pins.
   //#define FIL_RUNOUT_PULLDOWN      // Use internal pulldown for filament runout pins.
 
@@ -1425,8 +1424,8 @@
 #define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
-  #define Z_SAFE_HOMING_X_POINT 20 //((X_BED_SIZE) / 2)    // X point for Z homing
-  #define Z_SAFE_HOMING_Y_POINT 67 //((Y_BED_SIZE) / 2)    // Y point for Z homing
+  #define Z_SAFE_HOMING_X_POINT 120 //((X_BED_SIZE) / 2)    // X point for Z homing
+  #define Z_SAFE_HOMING_Y_POINT 40 //((Y_BED_SIZE) / 2)    // Y point for Z homing
 #endif
 
 // Homing speeds (mm/m)
