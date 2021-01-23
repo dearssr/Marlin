@@ -799,7 +799,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 400, 420 } // 142.05 // 427.50 // 94.86 (direct) // { 40, 40, 200, 70.43 } //{ 160, 160, 800, 281.72 } // 140.86 //{ 100, 100, 400, 95 } //{ 200, 200, 800, 190 } //{ 100, 100, 400, 100 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 320, 320, 400, 1680 } // { 160, 160, 400, 420 } // 142.05 // 427.50 // 94.86 (direct) // { 40, 40, 200, 70.43 } //{ 160, 160, 800, 281.72 } // 140.86 //{ 100, 100, 400, 95 } //{ 200, 200, 800, 190 } //{ 100, 100, 400, 100 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1188,8 +1188,8 @@
 #define Y_BED_SIZE 210
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS -5.6
-#define Y_MIN_POS -10
+#define X_MIN_POS -12.6
+#define Y_MIN_POS -4
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
